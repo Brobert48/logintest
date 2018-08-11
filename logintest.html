@@ -20,6 +20,15 @@
 <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script> -->
 
 <script>
+  var config = {
+    apiKey: "AIzaSyAlGYe62UHLXOxTPaULsNQI5ruGpwih5XQ",
+    authDomain: "logintest-2933c.firebaseapp.com",
+    databaseURL: "https://logintest-2933c.firebaseio.com",
+    projectId: "logintest-2933c",
+    storageBucket: "logintest-2933c.appspot.com",
+    messagingSenderId: "237055848806"
+  };
+  firebase.initializeApp(config);
   var uiConfig = {
         signInSuccessUrl: '<url-to-redirect-to-on-success>',
         signInOptions: [
@@ -43,15 +52,7 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
 
-  var config = {
-    apiKey: "AIzaSyAlGYe62UHLXOxTPaULsNQI5ruGpwih5XQ",
-    authDomain: "logintest-2933c.firebaseapp.com",
-    databaseURL: "https://logintest-2933c.firebaseio.com",
-    projectId: "logintest-2933c",
-    storageBucket: "logintest-2933c.appspot.com",
-    messagingSenderId: "237055848806"
-  };
-  firebase.initializeApp(config);
+  
 </script>
 </head>
 <body>
