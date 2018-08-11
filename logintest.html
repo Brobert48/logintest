@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <!-- Firebase App is always required and must be first -->
-<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <!-- MomentJS -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="assets/plugins/bootstrap-4.0.0-dist/css/bootstrap.css">
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Log In/Sign Up</title>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
 
 <!-- Add additional services that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
@@ -32,23 +40,11 @@
   </script>
   <script>
   var uiConfig = {
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInSuccessUrl: 'index.html',
         signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-          // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-          // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          // firebase.auth.GithubAuthProvider.PROVIDER_ID,
           firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
         ],
-        // Terms of service url.
-        tosUrl: '<your-tos-url>',
-        // Privacy policy url.
-        privacyPolicyUrl: '<your-privacy-policy-url>'
       };
-
       // Initialize the FirebaseUI Widget using Firebase.
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
@@ -57,10 +53,161 @@
   
 </script>
 </head>
+
 <body>
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
-    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, repudiandae voluptatibus sed sit numquam quam quasi laborum consequatur laboriosam corrupti ea rem. Vel commodi repellendus modi atque vitae quo nam repudiandae praesentium officia illo. Commodi molestias libero odio dolorum sint debitis ipsa reiciendis magni? Consequatur, praesentium repudiandae. Labore cum incidunt dicta quo eveniet unde culpa numquam necessitatibus quae officia impedit, repellendus fugiat, soluta cupiditate placeat ut quis aut totam. Amet beatae est minima iure adipisci eveniet itaque, alias ipsa consectetur porro labore iste temporibus harum praesentium, possimus in vel, dolore dignissimos vero reiciendis illo ratione totam. Excepturi cum quo ratione.</div>
-  
+  <div class="container-fluid p-0">
+    <div class="row" id="header">
+      <div class="col">
+        <div class="jumbotron jumbotron-fluid mb-0">
+          <div class="container">
+            <h1 class="display-4">Sign Up Today</h1>
+            <p class="lead">Already have an account? Sign in on the left</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/brandLogo.png" width="30" height="30" class="d-inline-block align-top mr-1" alt="">Sweet Awesome Name for Our App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Today</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Your Week Ahead</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Calender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="login.html">Login/Out
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container-fluid">
+    <div class="row" id="body">
+      <div class="col-2 p-2 border-right border-primary" id="logInArea">
+        <!-- <div class="p-1">
+          Log In
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon2">
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary bg-primary text-white" id="logInBtn" type="button">Log In</button>
+          </div>
+        </div> -->
+        <div id="firebaseui-auth-container"></div>
+      </div>
+      <div class="col-10" id="registerForm">
+        <form> Register Here
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault01">First name</label>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" required>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault02">Last name</label>
+              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" required>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefaultUsername">Email</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                </div>
+                <input type="text" id="email" class="form-control" id="validationDefaultUsername" placeholder="Email" aria-describedby="inputGroupPrepend2"
+                  required>
+              </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="validationDefault01">Password</label>
+                  <input type="text" id="password" class="form-control" id="validationDefault01" placeholder="Password" required>
+                </div>
+                </div>
+                <div class="form-row">
+            <button class="btn btn-primary" type="submit" onclick="handleSignUp()">Sign Up</button>
+              
+            </div>
+            <script>
+            function handleSignUp() {
+              var email = document.getElementById('email').value;
+              var password = document.getElementById('password').value;
+              if (email.length < 4) {
+                alert('Please enter an email address.');
+                return;
+              }
+              if (password.length < 4) {
+                alert('Please enter a password.');
+                return;
+              }
+              // Sign in with email and pass.
+              // [START createwithemail]
+              firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // [START_EXCLUDE]
+                if (errorCode == 'auth/weak-password') {
+                  alert('The password is too weak.');
+                } else {
+                  alert(errorMessage);
+                }
+                console.log(error);
+                // [END_EXCLUDE]
+              });
+              // [END createwithemail]
+            }</script>
+            
+            
+          </div>
+           <div class="form-row">
+</div>
+           <!-- <div class="col-md-6 mb-3">
+              <label for="validationDefault03">City</label>
+              <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault04">State</label>
+              <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault05">Zip</label>
+              <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
+            </div> -->
+          <!-- </div> -->
+          
+        </form>
+      </div>
+    </div>
+    <div class="row" id="footer">
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <!-- widget javascript files -->
+  <script type="text/javascript" src="assets\javascript\horoscope.js"></script>
+  <script type="text/javascript" src="assets\javascript\weather.js"></script>
+  <!-- bootstrap JS -->
+  <script src="assets/plugins/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
